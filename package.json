@@ -1,0 +1,29 @@
+{
+  "name": "should-up",
+  "version": "0.0.0",
+  "description": "De-clutter your unit test descriptions",
+  "author": "Henry Smith <henry@spotify.com>",
+  "license": "Apache 2.0",
+  "keywords": [
+    "tdd",
+    "cleanup"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spotify/should-up"
+  },
+  "bin": {
+    "should-up": "bin/should-up"
+  },
+  "dependencies": {
+    "command-line-args": "^4.0.2",
+    "recursive-readdir-sync": "^1.0.6"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^3.3.0"
+  },
+  "scripts": {
+    "test": "mocha test/*"
+  }
+}

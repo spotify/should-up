@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+const path = require('path');
+const fs = require('fs');
+const src = path.join(path.dirname(fs.realpathSync(__filename)), '../src');
+const shouldUp = require(src);
+
+const commandLineArgs = require('command-line-args');
+const options = commandLineArgs([
+  { name: 'targets', type: String, multiple: true, defaultOption: true },
+]);
+const targets = [];
+
+const scan = require('recursive-readdir-sync')
+options.targets.forEach(target => {
+  if (fs.statSync(target).isDirectory()) {
+    targets.push.apply(targets, scan(target));
+  } else {
+    targets.push(target);
+  }
+});
+
+targets.forEach(target => {
+  const input = fs.readFileSync(target, 'utf-8');
+  const output = shouldUp(input);
+
+  if (input !== output) {
+    fs.writeFileSync(target, output, 'utf-8');
+  }
+});
