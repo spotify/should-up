@@ -1,6 +1,6 @@
 {
   "name": "should-up",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "De-clutter your unit test descriptions",
   "author": "Henry Smith <henry@spotify.com>",
   "license": "Apache 2.0",
