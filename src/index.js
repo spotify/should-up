@@ -12,22 +12,22 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-const replacements = require('./replacements');
+const replacements = require("./replacements");
 
 function convert(input) {
   let output = input;
 
-  output = output.replace(/^([ ]*it\(['"])(.*)$/gm, (match, it, description) => {
-
-    Object.keys(replacements).forEach(from => {
-      const to = replacements[from];
-      from = new RegExp(`\\b${from}\\b`);
-      description = description.replace(from, to);
-    });
-
-    return it + description;
-  });
-
+  output = output.replace(
+    /^([ ]*(?:it|test)\(['"])(.*)$/gm,
+    (match, it, description) => {
+      Object.keys(replacements).forEach((from) => {
+        const to = replacements[from];
+        from = new RegExp(`\\b${from}\\b`);
+        description = description.replace(from, to);
+      });
+      return it + description;
+    }
+  );
 
   return output;
 }
