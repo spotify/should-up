@@ -12,10 +12,10 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-const expect = require('expect.js');
-const shouldUp = require('../src');
+const expect = require("expect.js");
+const shouldUp = require("../src");
 
-describe('should-up', () => {
+describe("should-up", () => {
   it('removes the "should" prefix', () => {
     const input = `
       it('should clear the cache', function () {
@@ -32,11 +32,27 @@ describe('should-up', () => {
     expect(shouldUp(input)).to.be(expected);
   });
 
+  it('removes the "should" prefix on test alias', () => {
+    const input = `
+      test('should clear the cache', function () {
+        expect(cache.empty).to.be(true);
+      })
+    `;
+
+    const expected = `
+      test('clears the cache', function () {
+        expect(cache.empty).to.be(true);
+      })
+    `;
+
+    expect(shouldUp(input)).to.be(expected);
+  });
+
   // In this example "should download" would match the "should do" replacement
   // unless the regex ignores non-word boundary matches. This is important,
   // since if this wasn't handled correctly it'd get replaced with something
   // like "it('doeswnload the file')" and that would be very bad.
-  it('ignores matches that are not on word boundaries', () => {
+  it("ignores matches that are not on word boundaries", () => {
     const input = `
       it('should download the file', function () {
         expect(download.complete).to.be(true);
