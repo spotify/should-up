@@ -105,7 +105,6 @@ module.exports = {
   "should initialize": "initializes",
   "should inject": "injects",
   "should insert": "inserts",
-  "should insert": "inserts",
   "should instantiate": "instantiates",
   "should integrate": "integrates",
   "should invoke": "invokes",
