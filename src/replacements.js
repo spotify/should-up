@@ -214,7 +214,6 @@ module.exports = {
   "should unsubscribe": "unsubscribes",
   "should unwrap": "unwraps",
   "should update": "updates",
-  "should update": "updates",
   "should uppercase": "uppercases",
   "should use": "uses",
   "should wait": "waits",
