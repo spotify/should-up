@@ -149,6 +149,7 @@ module.exports = {
   "should register": "registers",
   "should reject": "rejects",
   "should remove": "removes",
+  "should rename": "renames",
   "should render": "renders",
   "should replace": "replaces",
   "should report": "reports",
