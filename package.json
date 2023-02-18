@@ -16,7 +16,7 @@
     "should-up": "bin/should-up"
   },
   "dependencies": {
-    "command-line-args": "^4.0.2",
+    "command-line-args": "^4.0.7",
     "recursive-readdir-sync": "^1.0.6"
   },
   "devDependencies": {
