@@ -17,7 +17,7 @@ const replacements = require('./replacements');
 function convert(input) {
   let output = input;
 
-  output = output.replace(/^([ ]*it\(['"])(.*)$/gm, (match, it, description) => {
+  output = output.replace(/^([ \t]*it\(['"])(.*)$/gm, (match, it, description) => {
 
     Object.keys(replacements).forEach(from => {
       const to = replacements[from];
